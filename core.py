@@ -2,6 +2,8 @@ import base64
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import os
+from termcolor import colored, cprint
+import sys
 
 
 def create_key(password: str):
@@ -32,11 +34,29 @@ def get_encrypt_files(path: str | None = None, filter=filter_python) -> list[str
             filesToEncrypt.append(sub)
         # Directory recursive traversal
         if os.path.isdir(sub):
-            for file in get_encrypt_files(path=sub):
-                filesToEncrypt.append(file)
+            filesToEncrypt.extend(get_encrypt_files(path=sub))
     return filesToEncrypt
 
 
 def are_you_sure(msg: str) -> bool:
-    answer = input(f"{msg} Are you sure? [Y\\n]\n")
+    answer = input(colored(f"{msg} Are you sure? [Y\\n]\n", "light_yellow"))
     return answer == "Y"
+
+
+def get_file_type(path):
+    if os.path.isfile(path):
+        return colored("file", "white")
+    if os.path.isdir(path):
+        return colored("directory", "blue", attrs=["bold"])
+    return colored("unknown", "red")
+
+
+def greet() -> None:
+    greet = r"""
+    _      ____              _                     __          __ ___ 
+    | | /| / / /  ___ _______( )___   __ _  __ __  / /______ __/ //__ \
+    | |/ |/ / _ \/ -_) __/ -_)/(_-<  /  ' \/ // / / __/ -_) \ / __//__/
+    |__/|__/_//_/\__/_/  \__/ /___/ /_/_/_/\_, /  \__/\__/_\_\\__/(_)  
+                                        /___/                        
+    """
+    cprint(greet, "green", "on_black", attrs=["bold"], file=sys.stdout)
