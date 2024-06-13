@@ -1,6 +1,5 @@
 # 🛡️ Where's my file?
 
-You can encrypt your child porn using DrCryptophile. Surprise the police before they surpise you!
 
 **Where's my file?** is a terminal program used to **encrypt** and **decrypt** file contents using [symmetric encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm) implemented in [Python](https://www.python.org/).
 
