@@ -76,9 +76,9 @@ py -3.12 -m ./encrypt.py \Path\to\files
 
 2. If correct destination was chosen proceed to encrypting by accepting the prompt.
    ![encrypt1](images/encrypt1.png)
-3. Enter password for encryption**⚠️SAME PASSWORD WILL BE USED FOR DECRYPTION SO REMEMBER IT⚠️**.
+3. Enter password for encryption**⚠️SAME PASSWORD WILL BE USED FOR DECRYPTION SO REMEMBER IT.⚠️**<br />
    ![encrypt2](images/encrypt2.png)
-4. and there you go, all files in chosen directory got encrypted!
+4. and there you go, all files in chosen directory got encrypted!<br />
    ![encrypt3](images/encrypt3.png)
 
 #### Decryption
